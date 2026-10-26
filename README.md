@@ -8,6 +8,10 @@ Dokumen ini adalah PRD (Product Requirements Document) DevCore. Isinya hidup:
 diperbarui setiap fase selesai. **Belum ada kode aplikasi di repo ini** — PRD dulu,
 kode menyusul per fase.
 
+**Posisi proyek:** DevCore adalah proyek **personal/profesional** — bukan produk
+WanStudio (yang fokus ke pendidikan). Karena itu DevCore memakai domain
+`ridwanharts.my.id`, bukan `wanstudio.my.id`.
+
 ---
 
 ## 1. Visi & Tujuan
@@ -159,9 +163,14 @@ situs statis seperti DevCore.
    - Output directory: `dist`
    - Root directory: (kosong)
 4. **Deploy** → DevCore langsung live di domain `*.pages.dev`.
-5. **(Opsional) Custom domain:** `devcore.wanstudio.my.id`
-   - Tambahkan CNAME di DNS Cloudflare yang mengarah ke project Pages.
-   - Lalu di Pages → **Custom domains** → tambahkan domain (SSL otomatis).
+5. **Custom domain:** `devcore.ridwanharts.my.id`
+   - Domain apex `ridwanharts.my.id` tetap menjadi portofolio (GitHub Pages)
+     dan **tidak** diganggu — DevCore memakai subdomain `devcore`.
+   - Tambahkan record CNAME `devcore` yang mengarah ke domain Pages project
+     (`<nama-project>.pages.dev`), di tempat DNS `ridwanharts.my.id`
+     dikelola saat ini.
+   - Lalu di Pages → **Custom domains** → tambahkan
+     `devcore.ridwanharts.my.id` (SSL otomatis dari Cloudflare).
 6. Setelah itu: setiap push ke `main` = deploy produksi otomatis,
    setiap pull request = URL preview tersendiri.
 
